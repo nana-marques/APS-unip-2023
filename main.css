@@ -60,11 +60,13 @@ html {
 .input-field{
     height: 45px;
     width: calc(100% - 20px);
+    max-height: 1.5em;
     font-size: 16px;
-    padding: 0 10px;
+    padding: 10px 0 10px 10px;
     border: 1px solid #E9ECEF;
     outline: none;
     border-radius: 5px 0 0 5px;
+    resize: none;
 }
 
 .typing-button{
@@ -97,6 +99,52 @@ html {
 }
 
 .messages{
-    height: 32em;
+    height: 32.5em;
     background-color: #E9ECEF;
+}
+
+.login-outside{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.login-inside{
+    background-color: #E9ECEF;
+    margin-left: auto;
+    margin-right: auto;
+    height: 25em;
+    width: 30em;
+    border-radius: 6px;
+    justify-content: space-between;
+}
+
+.login-input-field{
+    height: 45px;
+    width: calc(100% - 40px);
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #E9ECEF;
+    outline: none;
+    margin: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.title{
+    padding-left: 1em;
+    color: #495057;
+}
+
+.login-button{
+    color: #E9ECEF;
+    height: 3em;
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    margin: 10px;
+    background: #797f84;
+    font-size: 17px;
+    cursor: pointer !important;
+    border-radius: 5px;
+    
 }
