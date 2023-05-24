@@ -40,30 +40,32 @@ public class ClienteSocket extends JFrame implements KeyListener, ActionListener
 	
 	
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_ENTER){	
+
+		if(e.getKeyCode() == KeyEvent.VK_ENTER){
+
 			//escrevendo a mensagem pela tecla enter
 	   		String mensagemfinal = TA1.getText();
-	   		if(TA1.getText().isEmpty())
-	   		{
-	   		return;	
+
+	   		if(TA1.getText().isEmpty()){
+	   			return;	
 	   		}
+			
 	   		Object usuario = lista.getSelectedValue();
-	   		if(usuario != null)
-	   		{ 
+	   		if(usuario != null){ 
 	   			TV1.setText(TV1.getText() + "\n" + loginS + ": \n" + TA1.getText());
 	   			escritor.println(Comandos.MENSAGEM + usuario);
 	   			escritor.println(TA1.getText());
 	   			TA1.setText("");	   		
 	   		
-	   		}else{
+	   		} 
+			else {
 	   			
-	   			if(TA1.getText().equalsIgnoreCase(Comandos.SAIR))
-		   		{
-		   		System.exit(0);
+	   			if(TA1.getText().equalsIgnoreCase(Comandos.SAIR)){
+		   			System.exit(0);
 		   		}
 		   		
-	   		JOptionPane.showMessageDialog(null,"Selecione o destinat·rio");
-	   		return;
+	   			JOptionPane.showMessageDialog(null,"Selecione o destinatario");
+	   			return;
 	   		}
 	   		
 	   		
@@ -85,214 +87,214 @@ public class ClienteSocket extends JFrame implements KeyListener, ActionListener
 	}
 	
 	
-	public void actionPerformed(ActionEvent arg0)
-	  {
+	public void actionPerformed(ActionEvent arg0){
 		
-	     if (arg0.getSource() == B1)	    	 
-	     {	 
-	   		//escrevendo a mensagem pelo bot„o virtual
+	    if (arg0.getSource() == B1){
+
+	   		//escrevendo a mensagem pelo bot√£o virtual
 	   		String mensagemfinal = TA1.getText();
-	   		if(TA1.getText().isEmpty())
-	   		{
-	   		return;	
+
+	   		if (TA1.getText().isEmpty()){
+	   			return;	
 	   		}
+
 	   		Object usuario = lista.getSelectedValue();
-	   		if(usuario != null)
-	   		{ 
+			
+	   		if (usuario != null){ 
 	   			TV1.setText(TV1.getText() + "\n" + loginS + ": \n" + TA1.getText());
 	   			escritor.println(Comandos.MENSAGEM + usuario);
 	   			escritor.println(TA1.getText());
 	   			TA1.setText("");	   		
 	   		
-	   		}else{
+	   		}
+			else {
 	   			
-	   			if(TA1.getText().equalsIgnoreCase(Comandos.SAIR))
-		   		{
-		   		System.exit(0);
+	   			if(TA1.getText().equalsIgnoreCase(Comandos.SAIR)){
+		   			System.exit(0);
 		   		}
 		   		
-	   		JOptionPane.showMessageDialog(null,"Selecione o destinat·rio");
-	   		return;
+	   			JOptionPane.showMessageDialog(null,"Selecione o destinatÔøΩrio");
+	   			return;
 	   		}
-	     }
+	    }
      
-	     if (arg0.getSource() == B2)	    	 
-	     {
+	    if (arg0.getSource() == B2){
 	    	ip = tnick.getText();
-	     }
+	    }
 	     
-	  }
+	}
 	
 	public ClienteSocket()
 	{
-		  JFrame frame = new JFrame("Messenger");
-		  frame.setSize(850,500);
-		  frame.setLocationRelativeTo(null);
-		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		  frame.setResizable(false);
-		  frame.getContentPane().setBackground(new Color(255, 255, 255));
+		JFrame frame = new JFrame("Messenger");
+		frame.setSize(850,500);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		  
-		  tnick = new JTextField();
-		  tnick.setSize(150,30);
-		  tnick.setLocation(420,20);	
-		  tnick.setForeground(Color.red);
+		tnick = new JTextField();
+		tnick.setSize(150,30);
+		tnick.setLocation(420,20);	
+		tnick.setForeground(Color.red);
 		 
-		  TA1 = new JTextArea();
-		  TA1.setSize(570,60);
-		  TA1.setLocation(15,400);
-		  TA1.setForeground(Color.black);
-		  TA1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		  TA1.addKeyListener(this);
+		TA1 = new JTextArea();
+		TA1.setSize(570,60);
+		TA1.setLocation(15,400);
+		TA1.setForeground(Color.black);
+		TA1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		TA1.addKeyListener(this);
 		  
 		  
 		  
-		  TV1 = new JTextArea();
-		  TV1.setSize(665,320);
-		  TV1.setLocation(15,70);
-		  TV1.setForeground(Color.black);
-		  TV1.setEditable(false);
-		  TV1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		TV1 = new JTextArea();
+		TV1.setSize(665,320);
+		TV1.setLocation(15,70);
+		TV1.setForeground(Color.black);
+		TV1.setEditable(false);
+		TV1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		  
-		  barra = new JScrollPane(TV1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		  barra.setBounds(15, 70, 665, 320);
+		barra = new JScrollPane(TV1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		barra.setBounds(15, 70, 665, 320);
 		  		  
-		  B1 = new JButton("Enviar");
-		  B1.setSize(80,30);
-		  B1.setLocation(600,400);
-		  B1.addActionListener(this);
+		B1 = new JButton("Enviar");
+		B1.setSize(80,30);
+		B1.setLocation(600,400);
+		B1.addActionListener(this);
 		  
-		  B2 = new JButton("Iniciar");
-		  B2.setSize(100,30);
-		  B2.setLocation(580,20);
-		  B2.addActionListener(this);
+		B2 = new JButton("Iniciar");
+		B2.setSize(100,30);
+		B2.setLocation(580,20);
+		B2.addActionListener(this);
 		  
-		  lista = new JList();
-		  lista.setLocation(690,50);
-		  lista.setSize(140,410);
-		  lista.setBackground(Color.GRAY);
+		lista = new JList();
+		lista.setLocation(690,50);
+		lista.setSize(140,410);
+		lista.setBackground(Color.GRAY);
 		  
-		  tx1 = new JLabel("Usu·rios Online:");
-		  tx1.setLocation(690,20);
-		  tx1.setSize(100,20);
+		tx1 = new JLabel("Usu√°rios Online:");
+		tx1.setLocation(690,20);
+		tx1.setSize(100,20);
 		  
-		  tx2 = new JLabel("Nome");
-		  tx2.setLocation(20,20);
-		  tx2.setSize(100,20);
-		  tx2.setForeground(Color.blue);
+		tx2 = new JLabel("Nome");
+		tx2.setLocation(20,20);
+		tx2.setSize(100,20);
+		tx2.setForeground(Color.blue);
 		  
 		  
-		  frame.getContentPane().setLayout(null);
-		  frame.getContentPane().add(B1);
-		  frame.getContentPane().add(TA1);	
-		  frame.getContentPane().add(barra);
-		  frame.getContentPane().add(lista);
-		  frame.getContentPane().add(tx1);
-		  frame.getContentPane().add(tx2);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(B1);
+		frame.getContentPane().add(TA1);	
+		frame.getContentPane().add(barra);
+		frame.getContentPane().add(lista);
+		frame.getContentPane().add(tx1);
+		frame.getContentPane().add(tx2);
 
 		  
-		  frame.show();
+		frame.show();
 		  
-		  String[] usuarios = new String[]{""};
-		  preencherlista(usuarios);
-		  this.gerenciador = new gerenciador(this, true);
+		String[] usuarios = new String[]{""};
+		preencherlista(usuarios);
+		this.gerenciador = new gerenciador(this, true);
 
 
 	}
 	
  
- private void preencherlista(String[] usuarios)
- {
-	 DefaultListModel modelo = new DefaultListModel(); 
-	 lista.setModel(modelo);
-	 for(String usuario: usuarios)
-	 {
-	 modelo.addElement(usuario);
-	 }
- }
+	private void preencherlista(String[] usuarios)
+	{
+		DefaultListModel modelo = new DefaultListModel(); 
+		lista.setModel(modelo);
+		
+		for(String usuario: usuarios){
+			modelo.addElement(usuario);
+		}
+	}
  
 	
- public void IniciarChat()
- {
-	try {
-		//por o ip da m·quina na qual vai rodar o servidor /a porta È 8044
-		final Socket cliente = new Socket("127.0.0.1", 8044);
-		escritor = new PrintWriter(cliente.getOutputStream(), true);
-		leitor = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+	public void IniciarChat()
+	{
+		try {
+			//colocar o ip da m√°quina na qual vai rodar o servidor /a porta 8044
+			final Socket cliente = new Socket("127.0.0.1", 8044);
+			escritor = new PrintWriter(cliente.getOutputStream(), true);
+			leitor = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+			
+		} 
+		catch (UnknownHostException e) {
+			System.out.println("Endere√ßo invalido");
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			System.out.println("Conex√£o n√£o √© poss√≠vel");
+			e.printStackTrace();
+		}
 		
-	} catch (UnknownHostException e) {
-		System.out.println("EndereÁo invalido");
-		e.printStackTrace();
-	} catch (IOException e) {
-		System.out.println("Conex„o n„o possÌvel");
-		e.printStackTrace();
 	}
-	
- }
- public static void main(String[] args)
- {
-	final ClienteSocket cliente = new ClienteSocket();
-	cliente.IniciarChat();		
-	cliente.IniciarLeitor();	
-	cliente.AtualizarLista();
 
+	public static void main(String[] args)
+	{
+		final ClienteSocket cliente = new ClienteSocket();
+		cliente.IniciarChat();		
+		cliente.IniciarLeitor();	
+		cliente.AtualizarLista();
 	
-	
- } 
- private void AtualizarLista() {
-	 escritor.println(Comandos.LISTA_USUARIOS);
-	 
-	
-}
+	} 
 
-private void IniciarLeitor() {
-		//lendo mensagem
-		
+	private void AtualizarLista() {
+		escritor.println(Comandos.LISTA_USUARIOS);	
+	}
+
+	private void IniciarLeitor() {
+			//lendo mensagem
+			
 		try {					 				
-             while(true)
-             {
-          	   String mensagem = leitor.readLine();
-          	  if(mensagem == null || mensagem.isEmpty()){
-          		 continue;
-          	  	 
-          	
-          	  }
-          	  if(mensagem.startsWith(Comandos.LISTA_USUARIOS))
-          	  {
-          		String[] usuarios = leitor.readLine().split(",");
-          		preencherlista(usuarios);
-          	  }else if(mensagem.equals(Comandos.LOGIN)){
-          		 String login = JOptionPane.showInputDialog(null, "Escreva seu nome:");		    	         		 
-          		 escritor.println(login);
-          		 tx2.setText(login);
-          		 loginS = login;
-          	
-          		 
-          		 
-          	  }else if(mensagem.equals(Comandos.LOGINACEITO)){
-          		 AtualizarLista();
-          		   
-          	  }
-          	  else
-          	  {
-          	  String TVA1 = TV1.getText();
-          	  TV1.setText("");
-          	  TV1.setText(TVA1 + "\n" + "\n " + mensagem);
-          	  TA1.setText("");	
-             }
-             }
+			while(true){
+
+				String mensagem = leitor.readLine();
+
+				if(mensagem == null || mensagem.isEmpty()){
+					continue;
+				}
+
+				if(mensagem.startsWith(Comandos.LISTA_USUARIOS)){
+					String[] usuarios = leitor.readLine().split(",");
+					preencherlista(usuarios);
+				}
+
+				else if(mensagem.equals(Comandos.LOGIN)){
+					String login = JOptionPane.showInputDialog(null, "Escreva seu nome:");		    	         		 
+					escritor.println(login);
+					tx2.setText(login);
+					loginS = login;	
+				}
 					
-				} catch (IOException e) {
-					System.out.println("ImpossÌvel ler a mensagem do servidor");
-					e.printStackTrace();
+				else if(mensagem.equals(Comandos.LOGINACEITO)){
+					AtualizarLista();
+					
+				}
+
+				else{
+					String TVA1 = TV1.getText();
+					TV1.setText("");
+					TV1.setText(TVA1 + "\n" + "\n " + mensagem);
+					TA1.setText("");	
 				}
 			}
+						
+			} 
+			
+			catch (IOException e) {
+				System.out.println("Imposs√≠vel ler a mensagem do servidor");
+				e.printStackTrace();
+			}
+	}
+			
+			
 		
-		
-	
 
 
-private DefaultListModel getLista() {
-		
+	private DefaultListModel getLista() {	
 		return (DefaultListModel) lista.getModel();
 	}
 
